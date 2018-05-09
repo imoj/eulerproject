@@ -2,15 +2,7 @@
   * Finde größtes Palindrom das Produkt zweier 3 stelliger Zahlen ist
   */
 
-function range(min, max=null, step=1) {
-  if(max == null) {
-    max = min;
-    min = 0
-  }
-  return Array.apply(null, Array(Math.floor((max-min)/Math.abs(step)))).map(
-    (x, i) => min + i*step
-  )
-}
+let range = require('./range')
 let left = range(900, 1000)
 let right = range(900, 1000)
 
