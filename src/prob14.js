@@ -1,3 +1,4 @@
+"use strict";
 
 var distances = [1, 1];
 const collatzSeqLength = (n) => {
