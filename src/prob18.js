@@ -26,6 +26,10 @@ const paths = [];
 
 let pred;
 
+/**
+  * Compute the sum walking down the triangle.
+  */
+
 for (let rowIndex = 0; rowIndex < arr.length;
   rowIndex += 1) {
   paths[rowIndex] = [];
