@@ -1,20 +1,20 @@
-"use strict";
-
-module.exports = function (longNumber, factor) {
+module.exports = function longAdd(longNumber, factor = 2) {
   let carry = 0;
-  longNumber = (""+longNumber).split('');
+  const number = (`${longNumber}`).split('');
 
-  for(let index=longNumber.length-1; index >= 0; index--) {
-    let digit = longNumber[index] * 2 + carry;
-    carry = 0;
-    if(digit >= 10) {
-      carry = Math.floor(digit / 10);
-      digit = digit % 10;
+  for (let index = number.length - 1; index >= 0; index -= 1) {
+    let digit = (number[index] * factor) + (carry % 10);
+    carry = Math.floor(carry / 10);
+    if (digit >= 10) {
+      carry += Math.floor(digit / 10);
+      digit %= 10;
     }
-    longNumber[index] = digit;
+    number[index] = digit;
   }
-  if(carry > 0) {
-    longNumber.unshift(carry);
+
+  while (carry > 0) {
+    number.unshift(carry % 10);
+    carry = Math.floor(carry / 10);
   }
-  return longNumber.join("");
+  return number.join('');
 };

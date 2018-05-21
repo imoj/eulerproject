@@ -2,46 +2,41 @@
   *
   */
 
-function factorial(n) {
-  if(n <= 1) {
-    return 1;
-  }
-  return n*factorial(n-1);
-}
-
 module.exports = class Factorizer {
-  constructor (sieve) {
+  constructor(sieve) {
     this.sieve = sieve;
   }
 
   primeFactorize(toFactorize) {
     let number = toFactorize;
-    let factors = [];
+    const factors = [];
 
+    // eslint-disable-next-line
     for(let p of this.sieve) {
-      while(number % p === 0) {
+      while (number % p === 0) {
         number /= p;
         factors.push(p);
 
-        if(number === 1) {
+        if (number === 1) {
           break;
         }
       }
-      if(number === 1) {
+      if (number === 1) {
         break;
       }
     }
     return factors;
   }
 
-  getExponents (toFactorize) {
-    let primeFactors = this.primeFactorize(toFactorize);
-    let exponents = {};
+  getExponents(toFactorize) {
+    const primeFactors = this.primeFactorize(toFactorize);
+    const exponents = {};
+
+    // eslint-disable-next-line
     for(let p of primeFactors) {
-      if(exponents[p]) {
+      if (exponents[p]) {
         exponents[p] += 1;
-      }
-      else {
+      } else {
         exponents[p] = 1;
       }
     }
@@ -49,15 +44,20 @@ module.exports = class Factorizer {
   }
 
   allFactors(toFactorize) {
-    let primeFactors = this.primeFactorize(toFactorize);
+    const primeFactors = this.primeFactorize(toFactorize);
 
-    let factors = new Set([1]);
-    let toAdd = new Set();
+    const factors = new Set([1]);
+    const toAdd = new Set();
+
+    // eslint-disable-next-line
     for(let p of primeFactors) {
+
+      // eslint-disable-next-line
       for(let f of factors) {
-        toAdd.add(f*p);
+        toAdd.add(f * p);
       }
 
+      // eslint-disable-next-line
       for(let f of toAdd) {
         factors.add(f);
       }
@@ -65,9 +65,8 @@ module.exports = class Factorizer {
     }
     return Array.from(factors.values());
   }
-
   countFactors(toFactorize) {
-    let factors = this.allFactors(toFactorize);
+    const factors = this.allFactors(toFactorize);
     return factors.length;
   }
 };
