@@ -35,6 +35,6 @@ class Grid {
 }
 
 
-let grid = new Grid(20);
+const grid = new Grid(20);
 
 console.log(grid.countPaths());
