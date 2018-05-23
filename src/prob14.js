@@ -29,7 +29,7 @@ let max = 0;
 let maxIndex = 0;
 
 for(let i=1; i<=1000000; i++) {
-  if(distances[i] && distances[i] > max) {
+  if (distances[i] && distances[i] > max) {
     max = distances[i];
     maxIndex = i;
   }
