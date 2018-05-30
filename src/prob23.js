@@ -10,12 +10,9 @@ const fact = new Factorizer(new Sieve());
 
 const numbers = Array(...Array(28123)).map((x, i) => i + 1);
 
-console.log(numbers);
 
 const abundantNumbers = numbers.filter(x =>
   x < (fact.allFactors(x).reduce((acc, val) => acc + val, 0) - x));
-
-console.log(abundantNumbers);
 
 const abundantSums = new Set();
 
@@ -26,8 +23,6 @@ abundantNumbers.forEach((val1) => {
     }
   });
 });
-
-console.log(abundantSums);
 
 const targetNumbers = Array(...(Array(28123))).map((x, i) => i + 1)
   .filter(val => !abundantSums.has(val));
