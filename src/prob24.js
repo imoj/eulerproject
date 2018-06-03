@@ -18,7 +18,6 @@ while (target > 0 && digits.length > 0) {
     counter += 1;
     target -= permutationsPerDigit;
   }
-  console.log(permutationsPerDigit, target, counter, digits)
   targetDigits.push(digits[counter]);
   digits.splice(counter, 1);
 }
