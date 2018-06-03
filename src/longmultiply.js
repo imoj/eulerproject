@@ -1,4 +1,4 @@
-module.exports = function longAdd(longNumber, factor = 2) {
+module.exports = function longMultiplication(longNumber, factor = 2) {
   let carry = 0;
   const number = (`${longNumber}`).split('');
 

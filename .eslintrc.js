@@ -2,6 +2,10 @@ module.exports = {
   "plugins": ["mocha"],
   "extends": "airbnb-base",
   "env": {
-    "mocha": true
+    "node": true,
+    "mocha": true,
   },
+  rules: {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
+  }
 };
